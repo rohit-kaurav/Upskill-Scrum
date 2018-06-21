@@ -1,0 +1,11 @@
+nav{
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-size: 20px;
+}
+.navbar,.container-fluid{
+    padding-right: 100px;
+    padding-left: 100px
+}
+.userlinks{
+    float: right;
+}

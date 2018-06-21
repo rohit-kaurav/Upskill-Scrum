@@ -1,0 +1,13 @@
+#description{
+    font-size: 14px;
+}
+span{
+    width:100px;
+    text-align: center;
+    color: white;
+    float: right;
+    float: bottom;
+    padding: 4px;
+    border-radius: .5px;
+    font-size: 14px;
+}

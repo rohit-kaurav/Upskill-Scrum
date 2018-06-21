@@ -1,0 +1,18 @@
+<div id="project-form">
+  <div class="col-md-7">
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <label for="projectname">Project Name</label>
+      <input 
+        type="text" 
+        id="projectname"
+        placeholder="Project Name" 
+        class="form-control"
+        formControlName="projectname">
+      <br/>
+      <label for="projectdescription">Description</label>
+      <textarea id="projectdescription" class="form-control"></textarea>
+      <br/>
+      <button mat-raised-button color="accent" type="submit">Add</button>
+    </form>
+  </div>
+</div>

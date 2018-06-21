@@ -1,0 +1,11 @@
+<div id="project-info-box" class="row">
+  <div class="col-md-9">
+    <h5>{{ projectName }}</h5>
+    <p id="description">{{ projectDescription | shortbrief }}</p>
+  </div>
+  <div class="col-md-3">
+    <span [style.backgroundColor]="statusColor">
+      {{ projectStatus }}
+    </span>
+  </div>
+</div>
