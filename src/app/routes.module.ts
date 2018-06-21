@@ -4,7 +4,7 @@ import { SignUpComponent } from './forms/signup/signup.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './forms/login/login.component';
 
 const routes: Routes = [
   {

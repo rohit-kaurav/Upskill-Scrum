@@ -2,7 +2,7 @@ import { ShortDescriptionPipe } from './pipes/short-description.pipe';
 import { ProjectFormComponent } from './forms/project-form/project-form.component';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './forms/login/login.component';
 import { SignUpComponent } from './forms/signup/signup.component';
 import { UserService } from './services/user.service';
 import { ProjectsComponent } from './projects/projects.component';
