@@ -1,8 +1,7 @@
-import { UserService } from './../services/user.service';
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +10,7 @@ import { Http } from '@angular/http';
 })
 export class LoginComponent {
 
-  constructor(private http: Http, private userservice: UserService){}
+  constructor(private userservice: UserService, private router: Router){}
 
   private invalidLoginFlag : boolean = false;
 
@@ -28,11 +27,22 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    // this.http.get('http://127.0.0.1:8000/api/user/')
-    //   .subscribe(
-    //     res => console.log('data',res),
-    //     error => console.log('error',error)
-    //   )
+    this.userservice.authorizeUser(this.loginform.value)
+      .subscribe(
+        response => {
+          console.log("login data ",response)
+          localStorage.setItem('username',response.username)
+          localStorage.setItem('name',response.name)
+          localStorage.setItem('role',response.role)
+          localStorage.setItem('employee_id',response.employee_id)
+          location.reload()
+          this.router.navigate(['/projects'])
+        },
+        error => {
+          console.log("login error ",error)
+          this.invalidLoginFlag = true
+        }        
+      )
   }
 
 }

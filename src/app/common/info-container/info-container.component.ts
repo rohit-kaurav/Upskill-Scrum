@@ -12,16 +12,16 @@ export class InfoContainerComponent implements OnInit {
 
   @Input() projectName: any;
   @Input() projectDescription: any;
-  @Input() teamSize: any;
-  @Input() numberOfBacklogs: number;
-  @Input() numberOfIterations: number;
+  // @Input() teamSize: any;
+  // @Input() numberOfBacklogs: number;
+  // @Input() numberOfIterations: number;
   @Input() startDate: any;
   @Input() projectStatus: any;
   private statusColor: any;
 
   ngOnInit() {
     if (this.projectStatus == 'New') this.statusColor = "#5DADE2";
-    if (this.projectStatus == 'In Progress') this.statusColor = "#EC7063";
+    if (this.projectStatus == 'In Progress') this.statusColor = "#DC7633";
     if (this.projectStatus == 'Completed') this.statusColor = "#2ECC71";
 
   }

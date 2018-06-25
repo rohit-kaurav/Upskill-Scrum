@@ -37,17 +37,17 @@
           @fade
           *ngIf="username.touched && username.invalid"
           class="validation-info">
-          <ng-container *ngIf="username.touched">
+          <!-- <ng-container *ngIf="username.touched"> -->
             <ng-container *ngIf="username.errors.required">
               <p>Username is required.</p>
             </ng-container>
             <ng-container *ngIf="username.errors.minlength">
               <p>Username must be atleast {{ username.errors.minlength.requiredLength }} characters.</p>
             </ng-container>
-            <ng-container *ngIf="!username.errors.hasUniqueUsername && !username.errors.minlength && !username.errors.required">
+            <ng-container *ngIf="username.errors.alreadyExists && !username.errors.minlength && !username.errors.required">
               <p>Username already taken.</p>
             </ng-container>
-          </ng-container>
+          <!-- </ng-container> -->
         </div>
         <div 
             @fade
@@ -71,27 +71,8 @@
           @fade
           *ngIf="password.valid"
           class="validation-info">
-        <ng-container *ngIf="passwordgroup.errors?.passwordsShouldMatch">
+        <ng-container *ngIf="passwordgroup.errors?.passwordsDontMatch">
           <p>Passwords donot match.</p>
-        </ng-container>
-      </div>
-
-      <input 
-        placeholder="example@domain.com"
-        class="form-control"
-        formControlName="email">
-      <div 
-          @fade
-          *ngIf="email.touched && email.invalid"
-          class="validation-info">
-        <ng-container *ngIf="email.errors.required">
-          <p>Email is required.</p>
-        </ng-container>
-        <ng-container *ngIf="email.errors.pattern">
-          <p>Invalid Email.</p>
-        </ng-container>
-        <ng-container *ngIf="!email.errors?.hasUniqueEmail && !email.errors.required && !email.errors.pattern">
-          <p>Email already registered.</p>
         </ng-container>
       </div>
     

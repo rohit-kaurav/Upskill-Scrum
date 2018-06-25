@@ -7,30 +7,27 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li *ngIf="currentUser" class="nav-item">
         <a class="nav-link" routerLink="/projects">Projects</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto userlinks">
-      <li class="nav-item">
+      <li *ngIf="!currentUser" class="nav-item">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="!currentUser" class="nav-item">
         <a class="nav-link" routerLink="/signup">Sign Up</a>
       </li>
-      <!-- <li ngbDropdown class="nav-item dropdown">
+      <li ngbDropdown *ngIf="currentUser" class="nav-item dropdown">
         <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" style="cursor: pointer" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
-          {{ currentUser.firstname }} {{ currentUser.lastname }}
+          {{ currentUser.name }}
         </a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" routerLink="/my-orders">My Orders</a>
-          <a *ngIf="currentUser.isAdmin" class="dropdown-item" routerLink="/admin/products">Manage Products</a>
-          <a *ngIf="currentUser.isAdmin" class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
           <a class="dropdown-item" routerLink="/my-profile">My Profile</a>
           <a class="dropdown-item" (click)="logOut()" style="cursor: pointer">Log Out</a>
         </div>
-      </li> -->
+      </li>
     </ul>
   </div>
 </nav>

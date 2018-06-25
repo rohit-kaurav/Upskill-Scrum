@@ -1,3 +1,5 @@
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { RegistrationSuccessComponent } from './common/registration-success/registration-success.component';
 import { ProjectFormComponent } from './forms/project-form/project-form.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SignUpComponent } from './forms/signup/signup.component';
@@ -27,6 +29,14 @@ const routes: Routes = [
   { 
     path: 'login', 
     component: LoginComponent
+  },
+  {
+    path: 'my-profile',
+    component: MyProfileComponent
+  },
+  {
+    path: 'registration-success',
+    component: RegistrationSuccessComponent
   },
   {
     path: '**',

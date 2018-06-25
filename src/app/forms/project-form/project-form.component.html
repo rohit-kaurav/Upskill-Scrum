@@ -1,18 +1,51 @@
 <div id="project-form">
+  <h5>Create New Project</h5>
   <div class="col-md-7">
+    <div
+      @fade
+      *ngIf="mandatory">
+      <h5>All fields are required and should be valid.</h5>
+    </div>
     <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
       <label for="projectname">Project Name</label>
       <input 
         type="text" 
-        id="projectname"
+        id="project-name" 
         placeholder="Project Name" 
-        class="form-control"
+        class="form-control" 
         formControlName="projectname">
       <br/>
+      <div 
+        @fade 
+        *ngIf="projectname.touched && projectname.invalid">
+        <ng-container *ngIf="projectname.errors.required">
+          <p>Project name is required.</p>
+        </ng-container>
+        <ng-container *ngIf="!projectname.errors.required && projectname.errors?.alreadyExists">
+          <p>Project name already Exists.</p>
+        </ng-container>
+      </div>
       <label for="projectdescription">Description</label>
-      <textarea id="projectdescription" class="form-control"></textarea>
+      <textarea 
+        id="projectdescription" 
+        class="form-control"
+        formControlName="description"></textarea>
       <br/>
-      <button mat-raised-button color="accent" type="submit">Add</button>
+      <div 
+        @fade 
+        *ngIf="description.touched && description.invalid">
+        <ng-container *ngIf="description.errors.required">
+          <p>Project description is required.</p>
+        </ng-container>
+        <ng-container *ngIf="!description.errors.required && description.errors.minlength">
+          <p>Project description should be minimum {{ description.errors.minlength.requiredLength }} characters.</p>
+        </ng-container>
+        <ng-container *ngIf="description.errors.maxlength">
+            <p>Project description can be maximum upto {{ description.errors.maxlength.requiredLength }} characters.</p>
+        </ng-container>
+      </div>
+      <button class="btn btn-success" type="submit">Add</button>
+      <button class="btn btn-danger" routerLink="/projects">Cancel</button>
     </form>
   </div>
 </div>

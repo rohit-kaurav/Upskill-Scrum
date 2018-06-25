@@ -8,16 +8,13 @@
     </div>
   </div>
   <div class="row">
-      <a *ngFor="let project of projects; let i = index" routerLink="/" class="col-md-8">
+      <a *ngFor="let project of projects; let i = index" routerLink="/" class="col-md-10">
         <info-container 
-          [projectName]="project.name" 
+          [projectName]="project.project_name" 
           [projectDescription]="project.description" 
-          [teamSize]="project.teamsize" 
-          [numberOfBacklogs]="project.backlogs"
-          [numberOfIterations]="project.iterations" 
           [startDate]="project.created" 
           [projectStatus]="project.status">
         </info-container>
-      </a>
+      </a>  
   </div>
 </div>
